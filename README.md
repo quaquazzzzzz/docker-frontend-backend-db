@@ -1,3 +1,15 @@
+# Anleitung: 
+
+Eine Firma möchte ihre bereits Containerisierte Webanwendung auf AWS ECS bereitstellen.
+
+Hierzu gehe durch folgende Schritte: 
+- Forke dieses Repository
+- Klone zunächst das repository auf deine lokale Maschine
+- Überprüfe mit ```docker compose up```, ob alles funktioniert wie es soll
+
+- (Weitere Schritte erarbeiten wir gemeinsam)
+
+
 A demonstration of Docker to implement a simple 3 tier architecture
 
 * frontend will be able to access the mid-tier
