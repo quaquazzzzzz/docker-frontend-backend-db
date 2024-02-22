@@ -7,7 +7,12 @@ Hierzu gehe durch folgende Schritte:
 - Klone zunächst das repository auf deine lokale Maschine
 - Überprüfe mit ```docker compose up```, ob alles funktioniert wie es soll
 
-- (Weitere Schritte erarbeiten wir gemeinsam)
+- Die Frontend und Backend Images müssen in ein privates ECR repository
+- Docker compose file so anpassen, dass front und backend aus repo bezogen werden
+- ecs-cli herunterladen
+- Mit der ecs-cli einen cluster erstellen
+- Mit der ecs-cli das compose file benutzen um unsere app in einem cluster zu starten
+- Netzwerkeinstellungen vornehmen, dass die App erreichbar ist
 
 
 A demonstration of Docker to implement a simple 3 tier architecture
