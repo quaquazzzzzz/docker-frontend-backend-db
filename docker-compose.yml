@@ -1,38 +1,26 @@
-version: "3.8"
+version: '3'
 services:
   web:
-    build: ./frontend
-    depends_on:
-      - api
+    image: 447746596892.dkr.ecr.eu-central-1.amazonaws.com/docker_frontend:latest
     ports:
       - "3000:3000"
-    networks:
-      - network-backend
+    environment:
+      API_URL: "http://api:3001"
+
   api:
-    build: ./backend
-    depends_on:
-      - mongo
+    image: 447746596892.dkr.ecr.eu-central-1.amazonaws.com/docker_backend:latest
     ports:
       - "3001:3001"
-    networks: 
-     - network-backend
-  
+    environment:
+      KEY: "/run/secrets/key"
+    secrets:
+      - key
+
   mongo:
     image: mongo
-    restart: always
-    volumes: 
-      - mongodb_data:/data/db
-    environment: 
-      MONGODB_INITDB_ROOT_USERNAME: username
-      MONGODB_INITDB_ROOT_PASSWORD: password
-    # uncomment following lines to access db locally
-    # ports:
-    #   - 27017:27017
-    networks: 
-     - network-backend
+    ports:
+      - "27017:27017"
 
-networks:
-  network-backend:
-
-volumes: 
-  mongodb_data:
+secrets:
+  key:
+    file: ./key.txt  # Lokaler Pfad zur Secret-Datei für Entwicklungs-/Testzwecke
